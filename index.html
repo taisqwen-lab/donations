@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.A.I.S. — Сбор средств</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #121214;
+      color: #e1e1e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #202024;
+      border: 1px solid #29292e;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    p.subtitle {
+      color: #a8a8b3;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .progress-bar-bg {
+      background: #121214;
+      border-radius: 12px;
+      height: 20px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid #323238;
+    }
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #8257e5, #996dff);
+      height: 100%;
+      width: 0%;
+      border-radius: 12px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    .stat-item {
+      text-align: left;
+    }
+    .stat-item:last-child {
+      text-align: right;
+    }
+    .stat-label {
+      color: #8d8d99;
+      font-size: 0.8rem;
+      display: block;
+    }
+    .stat-value {
+      font-weight: bold;
+      color: #ffffff;
+    }
+    .remaining-box {
+      background: #121214;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #a8a8b3;
+    }
+    .remaining-box highlight {
+      color: #04d361;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Поддержка T.A.I.S.</h1>
+    <p class="subtitle">Цель сбора на развитие проекта</p>
+
+    <div class="progress-bar-bg">
+      <div id="progress" class="progress-bar-fill"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-label">Собрано</span>
+        <span class="stat-value"><span id="current">0</span> $</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Цель</span>
+        <span class="stat-value"><span id="target">0</span> $</span>
+      </div>
+    </div>
+
+    <div class="remaining-box">
+      Осталось собрать: <span id="remaining" style="color:#04d361; font-weight:bold;">0</span> $ 
+      (<span id="percent">0</span>%)
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // setup sums
+    // ==========================================
+    const CURRENT_AMOUNT = 0;   // How many have already been donated?
+    const TARGET_AMOUNT  = 100; // Purpose of collection
+    // ==========================================
+
+    const percent = Math.min(Math.round((CURRENT_AMOUNT / TARGET_AMOUNT) * 100), 100);
+    const remaining = Math.max(TARGET_AMOUNT - CURRENT_AMOUNT, 0);
+
+    document.getElementById('current').innerText = CURRENT_AMOUNT.toLocaleString();
+    document.getElementById('target').innerText = TARGET_AMOUNT.toLocaleString();
+    document.getElementById('remaining').innerText = remaining.toLocaleString();
+    document.getElementById('percent').innerText = percent;
+    
+    // for animations
+    setTimeout(() => {
+      document.getElementById('progress').style.width = percent + '%';
+    }, 100);
+  </script>
+
+</body>
+</html>
