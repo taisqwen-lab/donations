@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T.A.I.S. — Сбор средств</title>
+  <title>T.A.I.S. — Fundraising</title>
   <style>
     * {
       box-sizing: border-box;
@@ -92,8 +92,8 @@
 <body>
 
   <div class="container">
-    <h1>Поддержка T.A.I.S.</h1>
-    <p class="subtitle">Цель сбора на развитие проекта</p>
+    <h1>T.A.I.S support</h1>
+    <p class="subtitle">The purpose of the collection for the development and publication of the project in open access</p>
 
     <div class="progress-bar-bg">
       <div id="progress" class="progress-bar-fill"></div>
@@ -101,17 +101,17 @@
 
     <div class="stats-grid">
       <div class="stat-item">
-        <span class="stat-label">Собрано</span>
+        <span class="stat-label">Collected</span>
         <span class="stat-value"><span id="current">0</span> $</span>
       </div>
       <div class="stat-item">
-        <span class="stat-label">Цель</span>
+        <span class="stat-label">Target</span>
         <span class="stat-value"><span id="target">0</span> $</span>
       </div>
     </div>
 
     <div class="remaining-box">
-      Осталось собрать: <span id="remaining" style="color:#04d361; font-weight:bold;">0</span> $ 
+      All that remains is to assemble: <span id="remaining" style="color:#04d361; font-weight:bold;">0</span> $ 
       (<span id="percent">0</span>%)
     </div>
   </div>
@@ -121,7 +121,7 @@
     // setup sums
     // ==========================================
     const CURRENT_AMOUNT = 0;   // How many have already been donated?
-    const TARGET_AMOUNT  = 100; // Purpose of collection
+    const TARGET_AMOUNT  = 8000; // Purpose of collection
     // ==========================================
 
     const percent = Math.min(Math.round((CURRENT_AMOUNT / TARGET_AMOUNT) * 100), 100);
